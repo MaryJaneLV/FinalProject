@@ -1,28 +1,30 @@
 <template>
-  <Header />
+  <div>
+    <Header />
+  </div>
 </template>
-
-<style>
-body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  color: #222;
-  text-align: center;
-}
-</style>
 
 <script>
 import Header from "./components/Header.vue";
 
 export default {
-  data() {
-    return {
-      hover: false
-    };
-  },
+  name: "App",
   components: {
     Header
+  },
+  methods: {
+    clicker() {}
   }
 };
 </script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: darkblue;
+  position: absolute;
+}
+</style>

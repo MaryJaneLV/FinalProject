@@ -55,6 +55,7 @@ button:hover {
 
 .container {
   padding: 100px;
+  position: absolute;
 }
 
 span.psw {
