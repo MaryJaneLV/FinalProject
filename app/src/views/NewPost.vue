@@ -6,6 +6,9 @@
       <input type="text" placeholder="Title" name="title" required />
       <br />
       <label for="text"></label>
+      <input type="text" placeholder="Image URL" name="img" required />
+      <br />
+      <label for="text"></label>
       <textarea placeholder="Text" name="text"></textarea>
       <br />
       <button type="submit">Create</button>
@@ -14,7 +17,8 @@
 </template>
 
 <style scoped>
-input[name="title"] {
+input[name="title"],
+input[name="img"] {
   width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
