@@ -35,7 +35,8 @@
     },
     "rules": {
       "quotes": "off",
-      "comma-dangle": "off"
+      "comma-dangle": "off",
+      "no-return-assign": "off"
     }
   },
   "browserslist": [

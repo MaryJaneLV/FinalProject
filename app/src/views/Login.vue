@@ -1,19 +1,17 @@
 <template>
-  <div>
-    <div class="container">
-      <h2>Log in</h2>
-      <label for="uname"></label>
-      <input type="text" placeholder="Username" name="uname" required />
-      <br />
-      <label for="psw"></label>
-      <input type="password" placeholder="Password" name="psw" required />
-      <br />
-      <button type="submit">Log in</button>
-    </div>
+  <div class="container">
+    <h2>Log in</h2>
+    <label for="uname"></label>
+    <input type="text" placeholder="Username" name="uname" required />
+    <br />
+    <label for="psw"></label>
+    <input type="password" placeholder="Password" name="psw" required />
+    <br />
+    <button type="submit">Log in</button>
   </div>
 </template>
 
-<style>
+<style scoped>
 input[name="uname"],
 input[name="psw"] {
   width: 30%;
@@ -39,7 +37,10 @@ button:hover {
 }
 
 .container {
-  padding: 100px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: darkblue;
+  text-align: center;
+  width: 100%;
 }
 
 span.psw {

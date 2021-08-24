@@ -6,6 +6,9 @@
       <input type="text" placeholder="Title" name="title" required />
       <br />
       <label for="text"></label>
+      <input type="text" placeholder="Image URL" name="img" required />
+      <br />
+      <label for="text"></label>
       <textarea placeholder="Text" name="text"></textarea>
       <br />
       <button type="submit">Create</button>
@@ -13,8 +16,9 @@
   </div>
 </template>
 
-<style>
-input[name="title"] {
+<style scoped>
+input[name="title"],
+input[name="img"] {
   width: 50%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -49,12 +53,27 @@ input [type=""] button {
   width: 30%;
 }
 
+button {
+  background-color: darkblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
 button:hover {
   opacity: 0.8;
 }
 
 .container {
-  padding: 100px;
+  width: 100%;
+  position: absolute;
+  padding: 0 0 0 0;
+  text-align: center;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: darkblue;
 }
 
 span.psw {

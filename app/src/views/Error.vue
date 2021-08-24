@@ -5,17 +5,19 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 .error {
   color: darkblue;
   font-size: 60px;
   padding: 100px;
-  display: inline-block;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
 }
 
 h1,
 h4 {
   margin-top: 0px;
   margin-bottom: 0px;
+  text-align: center;
 }
 </style>

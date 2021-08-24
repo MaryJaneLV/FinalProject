@@ -4,8 +4,12 @@
   </div>
 </template>
 
+<script></script>
+
 <style>
 .content {
-  padding: 100px;
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 </style>
