@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<style>
+<style scoped>
 input[name="title"] {
   width: 50%;
   padding: 12px 20px;
@@ -49,13 +49,27 @@ input [type=""] button {
   width: 30%;
 }
 
+button {
+  background-color: darkblue;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
 button:hover {
   opacity: 0.8;
 }
 
 .container {
-  padding: 100px;
+  width: 100%;
   position: absolute;
+  padding: 0 0 0 0;
+  text-align: center;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: darkblue;
 }
 
 span.psw {

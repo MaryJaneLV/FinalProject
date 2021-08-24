@@ -24,28 +24,42 @@
   </div>
 </template>
 -->
+
 <template>
-  <header>
+  <div class="header">
     <ul id="nav">
-      <li><router-link to="/">Home</router-link></li>
-      <li><router-link to="/posts">All posts</router-link></li>
+      <img
+        id="logo"
+        src="https://www.seekpng.com/png/full/778-7781688_new-applied-now-accenture-logo-greater-than.png"
+      />
+      <li><router-link to="/"> Home </router-link></li>
+      <li><router-link to="/posts"> All posts </router-link></li>
     </ul>
     <div class="button-container">
       <button id="plus-btn">
-        <router-link to="/newpost">➕</router-link>
+        <router-link to="/newpost">
+          <img
+            src="https://mpng.subpng.com/20180329/khq/kisspng-computer-icons-icon-design-clip-art-plus-5abccc211d83e3.0307650615223224651209.jpg"
+          />
+        </router-link>
       </button>
-      <button id="user-btn" @mouseover="hover = true" @mouseleave="hover = false">
-        🧔
-      </button>
+      <li id="user-btn" @mouseover="hover = true" @mouseleave="hover = false">
+        <img src="http://simpleicon.com/wp-content/uploads/user1.png" />
+        <transition name="fade">
+          <Dropdown
+            :options="options"
+            v-if="hover"
+            @mouseover="hover = true"
+            @click="hover = false"
+          />
+        </transition>
+      </li>
     </div>
-    <Dropdown :options="options" v-if="hover" @mouseover="hover = true" @click="hover = false" />
-    <router-view />
-  </header>
+  </div>
 </template>
 
 <script>
 import Dropdown from "./Dropdown.vue";
-// import router from "../router/index.js";
 
 export default {
   name: "Header",
@@ -81,34 +95,38 @@ export default {
 </script>
 
 <style>
-header {
+img {
+  width: 70px;
+  height: 70px;
+  background-color: white;
+}
+
+.header {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  border: 1px solid #ff0ff0;
+  border: 1px solid darkblue;
   position: relative;
 }
 
 #nav {
   display: flex;
-  flex: 1;
-  justify-content: start;
   list-style: none;
-  top: 4rem;
-  right: 0;
-  width: 20rem;
-  background: #fff;
-
-  z-index: 1;
 }
 
 #nav > li {
-  margin-left: 0.5rem;
+  padding: 10px;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: darkblue;
+}
+
+#nav > li.router-link-visited {
+  color: red;
 }
 
 #logo {
-  width: 2rem;
-  height: 2rem;
+  width: 2.5rem;
+  height: 2.5rem;
 }
 
 .button-container {
@@ -117,12 +135,14 @@ header {
 
 #plus-btn,
 #user-btn {
-  position: relative;
   border: none;
-  background: lightblue;
-  margin-left: 0.5rem;
-  height: 100%;
+  margin-right: 1rem;
+  background-color: white;
 }
+#user-btn {
+  list-style: none;
+}
+
 /*
 img {
   width: 10%;

@@ -6,6 +6,9 @@
 
 <style>
 .content {
-  padding: 100px;
+  width: 100%;
+  text-align: center;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: darkblue;
 }
 </style>

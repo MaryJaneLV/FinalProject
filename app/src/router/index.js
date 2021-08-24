@@ -42,7 +42,7 @@ const routes = [
     component: NewPost
   },
   {
-    path: "*",
+    path: "/:catchAll(.*)*",
     name: "Error",
     component: Error
   }
