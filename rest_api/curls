@@ -1,0 +1,20 @@
+POST REQUEST api/users
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"id":2,"username":"Ingeborg","password":"CrWJxv4"}' \
+  http://localhost:3000/api/user
+
+GET REQUEST
+curl http://localhost:3000/api/user
+
+POST REQUEST api/post
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"id":2,"title":"data-warehouse","text":"Team-oriented empowering software","user_id":1}' \
+  http://localhost:3000/api/post
+
+PUT REQUEST api/post
+curl --header "Content-Type: application/json" \
+  --request PUT \
+  --data '{"title":"TEST UPDATE","text":"Team-oriented empowering software","user_id":1}' \
+  http://localhost:3000/api/post/2
