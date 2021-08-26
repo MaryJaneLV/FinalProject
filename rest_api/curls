@@ -1,8 +1,14 @@
 POST REQUEST api/users
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"id":2,"username":"Ingeborg","password":"CrWJxv4"}' \
+  --data '{"username":"oscar","password":"yomama"}' \
   http://localhost:3000/api/user
+
+POST REQUEST api/users/login
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"username":"Ingeborg","password":"CrWJxv4"}' \
+  http://localhost:3000/api/user/login
 
 GET REQUEST
 curl http://localhost:3000/api/user
@@ -13,8 +19,13 @@ curl --header "Content-Type: application/json" \
   --data '{"id":2,"title":"data-warehouse","text":"Team-oriented empowering software","user_id":1}' \
   http://localhost:3000/api/post
 
-PUT REQUEST api/post
+PUT REQUEST api/post/:id
 curl --header "Content-Type: application/json" \
   --request PUT \
   --data '{"title":"TEST UPDATE","text":"Team-oriented empowering software","user_id":1}' \
+  http://localhost:3000/api/post/2
+
+PUT REQUEST api/post
+curl --header "Content-Type: application/json" \
+  --request DELETE \
   http://localhost:3000/api/post/2

@@ -25,9 +25,3 @@ async function runMigrations() {
   }
 }
 runMigrations();
-
-// this can not work at 100% rate, because .map & .forEach doesn't handle async functions properly
-// migrationFiles.map(async (fileName) => {
-//     const data = fs.readFileSync(`${migrationsPath}/${fileName}`).toString();
-//     await pool.promise().query(data); //this is asynchronous call
-// });

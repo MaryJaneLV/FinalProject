@@ -34,6 +34,19 @@ class UsersRepository {
     }
   }
 
+  async getOneByColumn(value, columnName){
+    try {
+      const storedData = await this._storage.getOneByColumn(value, columnName);
+      if(!storedData) return null
+
+      const UserModel = new User(storedData);
+
+      return UserModel.getData();
+    } catch (error) {
+      console.error("Error with storage: ", error);
+    }
+  }
+
   // data == req.body
   async create(data) {
     try {

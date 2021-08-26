@@ -12,11 +12,24 @@ class DbStorage extends BaseStorage {
     const [rows] = await pool.promise().execute(`SELECT * FROM ${this._table}`);
     return rows;
   }
+
   async getById(id) {
     const [rows] = await pool
       .promise()
       .execute(`SELECT * FROM ${this._table} WHERE id = ?`, [id]);
 
+    if(!rows.length) return null
+    return rows[0];
+  }
+
+  async getOneByColumn(value, columnName){
+    const [rows] = await pool
+      .promise()
+      .query(
+        `SELECT * FROM ${this._table} WHERE ?? = ?`,
+        [columnName, value]
+      ) 
+      
     if(!rows.length) return null
     return rows[0];
   }

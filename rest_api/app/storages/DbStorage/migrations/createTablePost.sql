@@ -1,0 +1,9 @@
+CREATE table IF NOT EXISTS post
+(
+  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  title VARCHAR(100) not null ,
+  text VARCHAR(1000),
+  user_id BIGINT,
+  FOREIGN KEY (user_id) REFERENCES user(id),
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
