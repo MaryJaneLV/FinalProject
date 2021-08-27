@@ -1,7 +1,7 @@
 <template>
   <div class="article-container">
-    <div class="article-card" :style="{ backgroundImage: `url(${img})` }" :v-on:click="clicker">
-      <h3 class="article-title">{{ title }}</h3>
+    <div class="article-card" :style="{ backgroundImage: `url(${img})` }">
+      <div class="article-title">{{ title }} {{ sometext }}</div>
     </div>
   </div>
 </template>
@@ -32,6 +32,7 @@ export default {
   background-repeat: no-repeat;
   background-position: center center;
   background: cover center no-repeat;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 .article-card:hover {
   cursor: pointer;

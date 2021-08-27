@@ -15,7 +15,8 @@ export default {
     Header
   },
   methods: {
-    clicker() {}
+    clicker() {},
+    clickerino() {}
   }
 };
 </script>

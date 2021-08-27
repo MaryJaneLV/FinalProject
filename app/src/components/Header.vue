@@ -3,7 +3,7 @@
     <ul id="nav">
       <img
         id="logo"
-        src="https://www.seekpng.com/png/full/778-7781688_new-applied-now-accenture-logo-greater-than.png"
+        src="https://res.cloudinary.com/zoominfo-com/image/upload/w_70,h_70,c_fit/accenture.com"
       />
       <li><router-link to="/"> Home </router-link></li>
       <li><router-link to="/posts"> All posts </router-link></li>

@@ -36,7 +36,8 @@
     "rules": {
       "quotes": "off",
       "comma-dangle": "off",
-      "no-return-assign": "off"
+      "no-return-assign": "off",
+      "max-len": "off"
     }
   },
   "browserslist": [

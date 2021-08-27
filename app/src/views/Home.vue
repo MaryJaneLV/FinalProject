@@ -33,8 +33,7 @@ export default {
           img:
             "https://static.planetminecraft.com/files/resource_media/screenshot/1733/bunny-on-side-1502918442.png"
         }
-      ],
-      authType: "/register"
+      ]
     };
   },
   components: {
@@ -52,8 +51,6 @@ body {
   margin: 0;
   padding: 0;
   width: 100%;
-  color: #222;
-  font-family: Open-sans, sans-serif;
 }
 .page-container {
   max-width: 60rem;
