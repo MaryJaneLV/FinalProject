@@ -1,7 +1,7 @@
 POST REQUEST api/users
 curl --header "Content-Type: application/json" \
   --request POST \
-  --data '{"username":"oscar","password":"yomama"}' \
+  --data '{"username":"olga","password":"hithere"}' \
   http://localhost:3000/api/user
 
 POST REQUEST api/users/login
@@ -29,3 +29,9 @@ PUT REQUEST api/post
 curl --header "Content-Type: application/json" \
   --request DELETE \
   http://localhost:3000/api/post/2
+
+POST REQUEST api/post
+curl --header "Content-Type: application/json" \
+  --request POST \
+  --data '{"username":"olga", "password":"hithere"}' \
+  http://localhost:3000/api/auth
