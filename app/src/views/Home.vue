@@ -5,7 +5,6 @@
       :title="article.title"
       :img="article.img"
       :key="article.title"
-      v-on:click="clicker"
     />
   </div>
 </template>

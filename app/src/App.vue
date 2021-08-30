@@ -13,10 +13,6 @@ export default {
 
   components: {
     Header
-  },
-  methods: {
-    clicker() {},
-    clickerino() {}
   }
 };
 </script>

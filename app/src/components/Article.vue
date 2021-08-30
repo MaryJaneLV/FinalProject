@@ -11,7 +11,8 @@ export default {
   name: "Article",
   props: {
     title: String,
-    img: String
+    img: String,
+    sometext: String
   }
 };
 </script>

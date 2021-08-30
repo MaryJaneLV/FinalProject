@@ -93,10 +93,6 @@ img {
   color: darkblue;
 }
 
-#nav > li.router-link-visited {
-  color: red;
-}
-
 #logo {
   width: 2.5rem;
   height: 2.5rem;
