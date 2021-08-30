@@ -7,12 +7,14 @@
 
 <script>
 import Header from "./components/Header.vue";
+import ModalFullScreenVue from "modal-fullscreen-vue";
 
 export default {
   name: "App",
 
   components: {
-    Header
+    Header,
+    "modal-fullscreen-vue": ModalFullScreenVue
   }
 };
 </script>

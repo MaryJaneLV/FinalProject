@@ -19,35 +19,31 @@
         <slot name="footer">
           <hr />
         </slot>
+        <button @click="show = true">Show</button>
       </div>
-      <button @click="$refs.modalName.openModal()">Open modal</button>
     </div>
-    <modal ref="modalName">
-      <template v-slot:header>
-        <h1>Modal title</h1>
-      </template>
+    <template>
+      <div>
+        <ModalFullScreen :show="show" v-on:show="handleShow">
+          <template slot="header">
+            header
+          </template>
 
-      <template v-slot:body>
-        <p>
-          {{ sometext }}
-        </p>
-        <p>
-          {{ sometext }}
-        </p>
-      </template>
+          <template slot="body">
+            <div v-for="n in 1000" :key="n">Body {{ n }}</div>
+          </template>
 
-      <template v-slot:footer>
-        <div>
-          <button @click="$refs.modalName.closeModal()">Cancel</button>
-          <button @click="$refs.modalName.closeModal()">Save</button>
-        </div>
-      </template>
-    </modal>
+          <template slot="footer">
+            <button @click="show = false">Close</button>
+          </template>
+        </ModalFullScreen>
+      </div>
+    </template>
   </div>
 </template>
 
 <script>
-import Modal from "./Modal.vue";
+import ModalFullScreen from "modal-fullscreen-vue";
 
 export default {
   name: "Post",
@@ -57,7 +53,7 @@ export default {
     sometext: String
   },
   components: {
-    Modal
+    ModalFullScreen
   }
 };
 </script>

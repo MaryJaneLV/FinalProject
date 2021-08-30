@@ -18,7 +18,6 @@
 
 <script>
 import Post from "../components/Post.vue";
-// import Modal from "../components/Modal.vue";
 
 export default {
   name: "AllPosts",
