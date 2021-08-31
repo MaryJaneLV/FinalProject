@@ -1,5 +1,4 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
 import Posts from "../views/AllPosts.vue";
 import Login from "../views/Login.vue";
@@ -7,8 +6,6 @@ import Signup from "../views/Signup.vue";
 import Error from "../views/Error.vue";
 import UserPosts from "../views/UserPosts.vue";
 import NewPost from "../views/NewPost.vue";
-
-Vue.use(VueRouter);
 
 const routes = [
   {
@@ -48,7 +45,8 @@ const routes = [
   }
 ];
 
-const router = new VueRouter({
+const router = createRouter({
+  history: createWebHistory(),
   routes,
   mode: "history"
 });

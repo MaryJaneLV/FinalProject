@@ -24,6 +24,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: darkblue;
-  position: absolute;
 }
 </style>
