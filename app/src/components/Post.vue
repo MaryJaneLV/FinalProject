@@ -7,19 +7,20 @@
 
       <template v-slot:body>
         <p>
-          {{ sometext }}
+          {{ text }}
         </p>
         <p>
-          {{ sometext }}
+          {{ text }}
         </p>
         <p>
-          {{ sometext }}
+          {{ text }}
         </p>
       </template>
 
       <template v-slot:footer>
         <div class="d-flex align-items-center justify-content-between">
-          <p>Author:</p>
+          <p>Author: {{ user }}</p>
+          <p>Created: {{ date }}</p>
           <!-- TODO: Add to user posts for post modification
           <button class="btn btn--secondary" @click="$refs.modalName.closeModal()">Cancel</button>
           <button class="btn btn--primary" @click="$refs.modalName.closeModal()">Save</button> -->
@@ -28,8 +29,10 @@
     </modal>
     <div class="post-container">
       <div class="column left">
-        <img :src="img" />
+        <p>Image goes here</p>
+        <!-- Image goes here : <img :src="img" /> -->
       </div>
+
       <div class="column right">
         <div class="post-header">
           <slot name="header">
@@ -39,7 +42,7 @@
 
         <div class="post-body">
           <slot name="body">
-            {{ sometext }}
+            {{ text }}
           </slot>
         </div>
         <div class="post-footer">
@@ -60,8 +63,10 @@ export default {
   name: "Post",
   props: {
     title: String,
-    img: String,
-    sometext: String
+    // img: String,
+    text: String,
+    user: Number,
+    date: String
   },
   components: {
     Modal

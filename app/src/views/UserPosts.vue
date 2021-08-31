@@ -50,11 +50,6 @@ export default {
   },
   components: {
     Post
-  },
-  methods: {
-    clicker() {
-      console.log("works");
-    }
   }
 };
 </script>

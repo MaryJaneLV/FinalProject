@@ -8,6 +8,7 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "axios": "^0.21.1",
     "vue": "^3.2.6",
     "vue-router": "^4.0.0-0"
   },
@@ -37,7 +38,8 @@
       "quotes": "off",
       "comma-dangle": "off",
       "no-return-assign": "off",
-      "max-len": "off"
+      "max-len": "off",
+      "arrow-parens": "off"
     }
   },
   "browserslist": [

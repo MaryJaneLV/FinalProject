@@ -1,14 +1,11 @@
-CREATE TABLE user
+CREATE TABLE IF NOT EXISTS user
 (
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   username VARCHAR(32) not null ,
   password VARCHAR(64)
 );
 
-INSERT into `user` (username, password)
-VALUES('Helyn', 'MSBNsAE5');
-
-CREATE table post
+CREATE table IF NOT EXISTS post
 (
   id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   title VARCHAR(100) not null ,
