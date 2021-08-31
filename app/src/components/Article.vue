@@ -1,18 +1,46 @@
 <template>
-  <div class="article-container">
-    <div class="article-card" :style="{ backgroundImage: `url(${img})` }">
-      <div class="article-title">{{ title }} {{ sometext }}</div>
+  <div>
+    <modal ref="modalName">
+      <template v-slot:header>
+        <h1>{{ title }}</h1>
+      </template>
+
+      <template v-slot:body>
+        <p>
+          {{ text }}
+        </p>
+      </template>
+
+      <template v-slot:footer>
+        <div class="d-flex align-items-center justify-content-between">
+          <p>Author:</p>
+        </div>
+      </template>
+    </modal>
+    <div class="article-container">
+      <div
+        class="article-card"
+        :style="{ backgroundImage: `url(${img})` }"
+        v-on:click="$refs.modalName.openModal()"
+      >
+        <div class="article-title">{{ title }} {{ sometext }}</div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import Modal from "./Modal.vue";
+
 export default {
   name: "Article",
   props: {
     title: String,
     img: String,
-    sometext: String
+    text: String
+  },
+  components: {
+    Modal
   }
 };
 </script>

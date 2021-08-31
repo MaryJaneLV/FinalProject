@@ -1,49 +1,60 @@
 <template>
-  <div class="post-container">
-    <div class="column left">
-      <img :src="img" />
-    </div>
-    <div class="column right">
-      <div class="post-header">
-        <slot name="header">
-          {{ title }}
-        </slot>
-      </div>
+  <div>
+    <modal ref="modalName">
+      <template v-slot:header>
+        <h1>{{ title }}</h1>
+      </template>
 
-      <div class="post-body">
-        <slot name="body">
+      <template v-slot:body>
+        <p>
           {{ sometext }}
-        </slot>
+        </p>
+        <p>
+          {{ sometext }}
+        </p>
+        <p>
+          {{ sometext }}
+        </p>
+      </template>
+
+      <template v-slot:footer>
+        <div class="d-flex align-items-center justify-content-between">
+          <p>Author:</p>
+          <!-- TODO: Add to user posts for post modification
+          <button class="btn btn--secondary" @click="$refs.modalName.closeModal()">Cancel</button>
+          <button class="btn btn--primary" @click="$refs.modalName.closeModal()">Save</button> -->
+        </div>
+      </template>
+    </modal>
+    <div class="post-container">
+      <div class="column left">
+        <img :src="img" />
       </div>
-      <div class="post-footer">
-        <slot name="footer">
-          <hr />
-        </slot>
-        <button @click="show = true">Show</button>
+      <div class="column right">
+        <div class="post-header">
+          <slot name="header">
+            {{ title }}
+          </slot>
+        </div>
+
+        <div class="post-body">
+          <slot name="body">
+            {{ sometext }}
+          </slot>
+        </div>
+        <div class="post-footer">
+          <slot name="footer">
+            <hr />
+            <button @click="$refs.modalName.openModal()">Read more</button>
+          </slot>
+        </div>
       </div>
     </div>
-    <template>
-      <div>
-        <ModalFullScreen :show="show" v-on:show="handleShow">
-          <template slot="header">
-            header
-          </template>
-
-          <template slot="body">
-            <div v-for="n in 1000" :key="n">Body {{ n }}</div>
-          </template>
-
-          <template slot="footer">
-            <button @click="show = false">Close</button>
-          </template>
-        </ModalFullScreen>
-      </div>
-    </template>
   </div>
 </template>
 
 <script>
-import ModalFullScreen from "modal-fullscreen-vue";
+import Modal from "./Modal.vue";
 
 export default {
   name: "Post",
@@ -53,7 +64,7 @@ export default {
     sometext: String
   },
   components: {
-    ModalFullScreen
+    Modal
   }
 };
 </script>
@@ -66,6 +77,18 @@ export default {
   margin-bottom: 3rem;
   border-radius: 2px;
   box-shadow: 0 2px 8px lightblue;
+}
+button {
+  cursor: pointer;
+  opacity: 0.8;
+  background: darkblue;
+  border-radius: 12px;
+  box-shadow: 0 6px 30px -10px #4a74c9;
+  overflow: hidden;
+  transform: translateX(0);
+  color: #fff;
+  width: 7rem;
+  height: 3rem;
 }
 img {
   width: 100%;
