@@ -1,5 +1,5 @@
 const express = require("express");
-
+const bcrypt = require('bcryptjs')
 const UserRepository = require("../repositories/UserRepository");
 // const addMetaData = require("../utils/addMetaData");
 
@@ -29,8 +29,34 @@ router.get("/:id", async (req, res) => {
 
 // POST - create a new user
 router.post("/", async (req, res) => {
+  try {
+    let {username, password} = req.body
 
-  const data = await UserRepository.create(req.body);
+    let salt = await bcrypt.genSalt(10)
+    let hashedPassword = await bcrypt.hash(password, salt)
+
+    const data = await UserRepository.create({
+      username, password:hashedPassword
+    });
+
+    if (data) {
+      res.status(201).json(data);
+    } else {
+      throw 'ERROR: impossible to create user'
+    }
+  } catch (error) {
+    console.error(console.error(error))
+    res.status(401).json({
+      error: "bad request",
+    });
+  }
+});
+
+// POST - create a new user
+router.post("/login", async (req, res) => {
+
+  const {username, password} = req.body
+  let data = await UserRepository.getOneByColumn(username, 'username')
 
   if (data) {
     res.status(201).json(data);
