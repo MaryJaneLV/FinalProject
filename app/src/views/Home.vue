@@ -1,13 +1,18 @@
 <template>
-  <div class="page-container">
-    <!-- TODO: add :img="article.img" -->
+  <div>
+    <div>
+      <h1>Latest posts</h1>
+    </div>
+    <div class="page-container">
+      <!-- TODO: add :img="article.img" -->
 
-    <Article
-      v-for="post in posts"
-      :title="post.title"
-      :text="post.text"
-      :key="post.id"
-    />
+      <Article
+        v-for="post in posts"
+        :title="post.title"
+        :text="post.text"
+        :key="post.id"
+      />
+    </div>
   </div>
 </template>
 
