@@ -1,15 +1,47 @@
 <template>
   <div class="container">
     <h2>Sign Up</h2>
-    <label for="uname"></label>
-    <input type="text" placeholder="Username" name="uname" required />
-    <br />
-    <label for="psw"></label>
-    <input type="password" placeholder="Password" name="psw" required />
-    <br />
-    <button type="submit">Sign Up</button>
+    <form @submit="register">
+      <input v-model="username" placeholder="username" />
+      <br />
+      <br />
+      <input v-model="password" placeholder="password" type="password" />
+      <br />
+      <br />
+      <button type="submit">REGISTER</button>
+    </form>
   </div>
 </template>
+
+<script>
+export default {
+  name: "Login",
+  data: () => {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+  computed: {
+    isAuth() {
+      return this.$store.state.auth.isAuthenicated
+    }
+  },
+  methods: {
+    register(e) {
+      e.preventDefault();
+      const payload = {
+        username: this.username,
+        password: this.password,
+      };
+      this.$store.dispatch({
+        type: "auth/register",
+        payload,
+      });
+    },
+  },
+};
+</script>
 
 <style scoped>
 input[type="text"],
@@ -56,13 +88,3 @@ span.psw {
   }
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      list: [{ name: "Maria", id: 1 }]
-    };
-  }
-};
-</script>
