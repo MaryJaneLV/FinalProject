@@ -18,12 +18,9 @@
       </template>
     </modal>
     <div class="article-container">
-      <div
-        class="article-card"
-        :style="{ backgroundImage: `url(${img})` }"
-        v-on:click="$refs.modalName.openModal()"
-      >
-        <div class="article-title">{{ title }} {{ sometext }}</div>
+      <!-- TODO: add img - :style="{ backgroundImage: `url(${img})` }"  -->
+      <div class="article-card" v-on:click="$refs.modalName.openModal()">
+        <div class="article-title">{{ title }} {{ text }}</div>
       </div>
     </div>
   </div>
@@ -37,11 +34,11 @@ export default {
   props: {
     title: String,
     img: String,
-    text: String
+    text: String,
   },
   components: {
-    Modal
-  }
+    Modal,
+  },
 };
 </script>
 
@@ -62,6 +59,8 @@ export default {
   background-position: center center;
   background: cover center no-repeat;
   font-family: Avenir, Helvetica, Arial, sans-serif;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px lightblue;
 }
 .article-card:hover {
   cursor: pointer;
