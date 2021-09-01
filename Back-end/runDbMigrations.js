@@ -7,7 +7,7 @@ const migrationsPath = path.resolve(
   __dirname,
   "./app/storages/DbStorage/migrations"
 );
-const migrationFiles = fs.readdirSync(migrationsPath);
+const migrationFiles = fs.readdirSync(migrationsPath).sort();
 
 async function runMigrations() {
   for (let i = 0; migrationFiles[i]; i++) {

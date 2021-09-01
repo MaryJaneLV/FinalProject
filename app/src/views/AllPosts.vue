@@ -27,7 +27,7 @@ export default {
   name: "AllPosts",
   data() {
     return {
-      posts: null
+      posts: null,
       // posts: [
       //   // {
       //   //   title: "test",
@@ -54,11 +54,13 @@ export default {
     };
   },
   components: {
-    Post
+    Post,
   },
   mounted() {
-    axios.get("http://localhost:3000/api/post").then(response => (this.posts = response.data));
-  }
+    axios
+      .get("http://localhost:3000/api/post")
+      .then((response) => (this.posts = response.data));
+  },
 };
 </script>
 

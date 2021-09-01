@@ -1,0 +1,9 @@
+SET FOREIGN_KEY_CHECKS=0;
+DROP TABLE IF EXISTS user;
+SET FOREIGN_KEY_CHECKS=1;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(64) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+);

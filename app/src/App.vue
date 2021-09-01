@@ -11,22 +11,17 @@ import Header from "./components/Header.vue";
 export default {
   name: "App",
 
-<<<<<<< HEAD
   components: {
-    Header
-=======
-    components: {
-      Header
+    Header,
+  },
+  computed: {
+    isAuth() {
+      return this.$store.state.auth.isAuthenicated;
     },
-    computed: {
-    isAuth(){
-      return this.$store.state.auth.isAuthenicated  
+    user() {
+      return this.$store.state.auth.user;
     },
-    user(){
-      return this.$store.state.auth.user
-    }
->>>>>>> 245e57185e3e6820579082481d38f5c442c2affa
-  }
+  },
 };
 </script>
 
