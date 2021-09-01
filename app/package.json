@@ -10,17 +10,25 @@
   "dependencies": {
     "axios": "^0.21.1",
     "vue": "^3.2.6",
+<<<<<<< HEAD
     "vue-router": "^4.0.0-0"
+=======
+    "vue-router": "^4.0.0-0",
+    "vuex": "^4.0.2"
+>>>>>>> 245e57185e3e6820579082481d38f5c442c2affa
   },
   "devDependencies": {
-    "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
+<<<<<<< HEAD
     "@vue/compiler-sfc": "^3.2.6",
     "@vue/eslint-config-airbnb": "^5.0.2",
     "eslint": "^6.7.2",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-vue": "^6.2.2"
+=======
+    "@vue/compiler-sfc": "^3.2.6"
+>>>>>>> 245e57185e3e6820579082481d38f5c442c2affa
   },
   "eslintConfig": {
     "root": true,
