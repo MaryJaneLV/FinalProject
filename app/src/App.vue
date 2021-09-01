@@ -11,11 +11,16 @@ import Header from "./components/Header.vue";
 export default {
   name: "App",
 
-  components: {
-    Header
-  },
-  methods: {
-    clicker() {}
+    components: {
+      Header
+    },
+    computed: {
+    isAuth(){
+      return this.$store.state.auth.isAuthenicated  
+    },
+    user(){
+      return this.$store.state.auth.user
+    }
   }
 };
 </script>
@@ -27,6 +32,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: darkblue;
-  position: absolute;
 }
 </style>

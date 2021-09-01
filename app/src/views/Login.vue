@@ -1,15 +1,53 @@
 <template>
   <div class="container">
     <h2>Log in</h2>
-    <label for="uname"></label>
-    <input type="text" placeholder="Username" name="uname" required />
-    <br />
-    <label for="psw"></label>
-    <input type="password" placeholder="Password" name="psw" required />
-    <br />
-    <button type="submit">Log in</button>
+    <form v-if="!isAuth"  @submit="login">
+      <input v-model="username" placeholder="username" />
+      <br />
+      <br />
+      <input v-model="password" placeholder="password" type="password" />
+      <br />
+      <br />
+      <button type="submit">LOGIN</button>
+    </form>
+    <button v-else v-on:click='logout'>LOGOUT</button>
   </div>
 </template>
+
+<script>
+export default {
+  name: "Login",
+  data: () => {
+    return {
+      username: "",
+      password: "",
+    };
+  },
+  computed: {
+    isAuth(){
+      return this.$store.state.auth.isAuthenicated
+    } 
+  },
+  methods: {
+    login(e) {
+      e.preventDefault();
+      const payload = {
+        username: this.username,
+        password: this.password,
+      };
+      this.$store.dispatch({
+        type: "auth/login",
+        payload,
+      });
+    },
+    logout(){
+      this.$store.dispatch({
+        type:"auth/logout"
+      })
+    }
+  },
+};
+</script>
 
 <style scoped>
 input[name="uname"],
@@ -56,13 +94,3 @@ span.psw {
   }
 }
 </style>
-
-<script>
-export default {
-  data() {
-    return {
-      list: [{ name: "Maria", id: 1 }]
-    };
-  }
-};
-</script>

@@ -1,31 +1,31 @@
 <template>
- <div>
-      <img alt="Vue logo" src="./assets/logo.png" >
-        <li v-for="i in info" :key="i.id" :class="item">
-        {{ i}}
-        </li>
+  <div id="app">
+    <postForm />
+    <div class="post" v-for="post in allPosts" :key="post.id">
+      <h2>{{post.title}}</h2>
+      <p>{{post.text}}</p>
+    </div>
   </div>
 </template>
 
 <script>
-import axios from 'axios'
-
+import { mapGetters, mapActions} from "vuex";
+import postForm from "./components/postForm";
 export default {
-  name: 'App',
-  components: {
-  },
-  data(){
-    return{
-      info: null
-    }
-  },
-  mounted() {
-    axios
-      .get('http://localhost:3000/api/user')
-      .then(response => (this.info = response.data));
+  name: "app",
+  // computed: {
+  //     allPosts() {
+  //       return this.$store.getters.allPosts;
+  //     }
+  // },
+  computed: mapGetters(["allPosts"]),
+  methods: mapActions(["fetchPosts"]),
+  components: {postForm},
+  async mounted() {
+    //this.$store.dispatch("fetchPosts");
+    this.fetchPosts();
   }
-  
-}
+};
 </script>
 
 <style>
@@ -35,13 +35,18 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
-  width: 100%;
 }
-li {
-    display:table;
-    width: 90%;
-    margin:0px auto 0px auto;
-    border: 2px solid black
+
+#nav {
+  padding: 30px;
+}
+
+#nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+#nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>
