@@ -2,11 +2,9 @@
   <div class="container">
     <h2>Sign Up</h2>
     <form @submit="register">
-      <input v-model="username" placeholder="username" />
-      <br />
+      <input v-model="username" placeholder="username" type="text" />
       <br />
       <input v-model="password" placeholder="password" type="password" />
-      <br />
       <br />
       <button type="submit">REGISTER</button>
     </form>
@@ -24,8 +22,8 @@ export default {
   },
   computed: {
     isAuth() {
-      return this.$store.state.auth.isAuthenicated
-    }
+      return this.$store.state.auth.isAuthenicated;
+    },
   },
   methods: {
     register(e) {

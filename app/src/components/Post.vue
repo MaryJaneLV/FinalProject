@@ -65,11 +65,11 @@ export default {
     // img: String,
     text: String,
     user: Number,
-    date: String
+    date: String,
   },
   components: {
-    Modal
-  }
+    Modal,
+  },
 };
 </script>
 
@@ -123,7 +123,8 @@ hr {
   transform: scale(1.1);
   position: relative;
   max-width: 70rem;
-  /*TODO: fix overlapping of posts  display: inline-flex;*/
+  /*TODO: fix overlapping of posts  */
+  display: inline-flex;
 }
 .post-body {
   padding: 10px 50px 0 50px;

@@ -1,16 +1,19 @@
 <template>
   <div class="container">
     <h2>Log in</h2>
-    <form v-if="!isAuth"  @submit="login">
-      <input v-model="username" placeholder="username" />
+    <form v-if="!isAuth" @submit="login">
+      <input v-model="username" placeholder="username" name="uname" />
       <br />
-      <br />
-      <input v-model="password" placeholder="password" type="password" />
-      <br />
+      <input
+        v-model="password"
+        placeholder="password"
+        type="password"
+        name="psw"
+      />
       <br />
       <button type="submit">LOGIN</button>
     </form>
-    <button v-else v-on:click='logout'>LOGOUT</button>
+    <button v-else v-on:click="logout">LOGOUT</button>
   </div>
 </template>
 
@@ -24,9 +27,9 @@ export default {
     };
   },
   computed: {
-    isAuth(){
-      return this.$store.state.auth.isAuthenicated
-    } 
+    isAuth() {
+      return this.$store.state.auth.isAuthenicated;
+    },
   },
   methods: {
     login(e) {
@@ -40,11 +43,11 @@ export default {
         payload,
       });
     },
-    logout(){
+    logout() {
       this.$store.dispatch({
-        type:"auth/logout"
-      })
-    }
+        type: "auth/logout",
+      });
+    },
   },
 };
 </script>
