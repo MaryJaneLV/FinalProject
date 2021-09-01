@@ -4,6 +4,6 @@ CREATE table IF NOT EXISTS post
   title VARCHAR(100) not null ,
   text VARCHAR(1000),
   user_id BIGINT,
-  FOREIGN KEY (user_id) REFERENCES user(id),
+  FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE SET NULL,
   created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

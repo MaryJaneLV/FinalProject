@@ -1,6 +1,0 @@
-CREATE TABLE IF NOT EXISTS user
-(
-  id BIGINT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  username VARCHAR(32) not null ,
-  password VARCHAR(64)
-);
