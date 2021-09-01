@@ -3,15 +3,15 @@
     <div class="container">
       <h2>New Post</h2>
       <label for="title"></label>
-      <input type="text" placeholder="Title" name="title" required />
+      <input v-model="title" type="text" placeholder="Title" name="title" required />
       <br />
       <label for="text"></label>
-      <input type="text" placeholder="Image URL" name="img" required />
+      <input v-model="pictureUrl" type="text" placeholder="Image URL" name="img" required />
       <br />
       <label for="text"></label>
-      <textarea placeholder="Text" name="text"></textarea>
+      <textarea v-model="text" placeholder="Text" name="text"></textarea>
       <br />
-      <button type="submit">Create</button>
+      <button type="submit" v-on:click="createPost">Create</button>
     </div>
   </div>
 </template>
@@ -94,8 +94,24 @@ span.psw {
 export default {
   data() {
     return {
-      list: [{ name: "Maria", id: 1 }]
+      title:"",
+      text:"",
+      pictureUrl:""
     };
+  },
+  methods:{
+    createPost(e){
+      e.preventDefault();
+      const payload = {
+        title: this.title,
+        text: this.text,
+        picture_url: this.pictureUrl
+      }
+      this.$store.dispatch({
+        type: 'posts/createPost',
+        payload
+      })
+    }
   }
 };
 </script>
