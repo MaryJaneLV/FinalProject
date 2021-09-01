@@ -4,7 +4,6 @@
       <template v-slot:header>
         <h1>{{ title }}</h1>
       </template>
-
       <template v-slot:body>
         <p>
           {{ text }}
@@ -77,7 +76,6 @@ export default {
 <style scoped>
 .column {
   float: left;
-  width: 50%;
   height: 300px;
   margin-bottom: 3rem;
   border-radius: 2px;
@@ -124,7 +122,8 @@ hr {
 .post-container:hover {
   transform: scale(1.1);
   position: relative;
-  display: inline-flex;
+  max-width: 70rem;
+  /*TODO: fix overlapping of posts  display: inline-flex;*/
 }
 .post-body {
   padding: 10px 50px 0 50px;
