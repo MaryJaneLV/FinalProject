@@ -39,22 +39,27 @@ export default {
   props: {},
   data() {
     return {
-      options: [
+    
+      hover: false
+    };
+  },
+  computed: {
+    options() {
+      let options =[
         {
           title: "My posts",
           url: "/userposts"
         },
         {
-          title: "Log in",
+          title: this.isAuthed ? "Log out" : "Log in",
           url: "/login"
-        },
-        {
-          title: "Sign Up",
-          url: "/signup"
         }
-      ],
-      hover: false
-    };
+      ]
+      !this.isAuthed && options.push({title: "Sign Up", url: "/signup"})
+      return options
+    },
+    isAuthed(){   
+      return this.$store.state.auth.isAuthenicated}
   },
   components: {
     Dropdown

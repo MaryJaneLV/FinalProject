@@ -22,6 +22,13 @@ export default {
       return this.$store.state.auth.user;
     },
   },
+  mounted() {
+      //To load data in to the store we need to dispatch an action.
+      //Check store/posts.js for further instruction
+      this.$store.dispatch({
+        type:'posts/loadPoasts' // module posts, action loadPosts
+      })
+  },
 };
 </script>
 

@@ -1,5 +1,5 @@
 const express = require("express");
-
+const auth = require('../middleware/auth')
 const PostRepository = require("../repositories/PostRepository");
 // const addMetaData = require("../utils/addMetaData");
 
@@ -27,11 +27,14 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-// POST - create a new post
-router.post("/", async (req, res) => {
-
-  const data = await PostRepository.create(req.body);
-
+// POST - create a new post user = {id: number}
+router.post("/", auth, async (req, res) => {
+  console.log(req.user)
+  const post = {
+    ...req.body,
+    user_id: req.user.id
+  }
+  let data = await PostRepository.create(post);
   if (data) {
     res.status(201).json(data);
   } else {
