@@ -9,6 +9,7 @@
     <Post
       v-for="post in userPosts"
       :title="post.title"
+      :user="post.user_id"
       :imageUrl="post.picture_url"
       :text="post.text"
       :key="post.title"

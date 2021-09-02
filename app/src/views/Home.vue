@@ -29,7 +29,7 @@ export default {
   computed: {
     posts() {
       //Using store/posts sortPostsByDate getter
-      return this.$store.getters["posts/sortPostsByDate"].splice(-3);
+      return this.$store.getters["posts/sortPostsByDate"].slice(0, 3);
     },
   },
 };
