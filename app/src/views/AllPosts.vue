@@ -5,7 +5,6 @@
         All Posts
         <hr />
       </h2>
-      <!-- TODO: add :img="post.img" -->
     </div>
     <Post
       v-for="post in posts"
@@ -17,6 +16,24 @@
       :imageUrl="post.picture_url"
       v-bind:key="post.id"
     />
+    <!--
+    <div v-if="list">
+      <div v-if="meta.links">
+        <button v-if="meta.links.first" @click="doRequest(meta.links.first)">
+          First
+        </button>
+        <button v-if="meta.links.prev" @click="doRequest(meta.links.prev)">
+          Prev
+        </button>
+        <button v-if="meta.links.next" @click="doRequest(meta.links.next)">
+          Next
+        </button>
+        <button v-if="meta.links.last" @click="doRequest(meta.links.last)">
+          Last
+        </button>
+      </div>
+    </div>
+    -->
   </div>
 </template>
 
@@ -31,15 +48,22 @@ export default {
   //     posts: null,
   //   };
   // },
-  computed:{
-    //Gettings state from vuex store 
-    posts(){
+  data() {
+    return {
+      list: undefined,
+      entry: undefined,
+      meta: undefined,
+    };
+  },
+  computed: {
+    //Gettings state from vuex store
+    posts() {
       return this.$store.state.posts.posts;
-    }
+    },
   },
   components: {
     Post,
-  }
+  },
 };
 </script>
 

@@ -33,7 +33,7 @@ export default {
   name: "Modal",
   data() {
     return {
-      show: false
+      show: false,
     };
   },
   methods: {
@@ -44,8 +44,8 @@ export default {
     openModal() {
       this.show = true;
       document.querySelector("body").classList.add("overflow-hidden");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -116,6 +116,9 @@ button {
 }
 .modal__footer {
   padding: 10px 20px 20px;
+  text-align: left;
+  font-size: smaller;
+  font-weight: bold;
 }
 .fade-enter-active,
 .fade-leave-active {

@@ -12,7 +12,8 @@ CREATE table IF NOT EXISTS post
   text VARCHAR(1000),
   user_id BIGINT,
   FOREIGN KEY (user_id) REFERENCES user(id),
-  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+  created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  picture_url VARCHAR(1000)
 );
 
 insert into post (id, title, text, user_id)

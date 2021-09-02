@@ -13,13 +13,17 @@
 
       <template v-slot:footer>
         <div class="d-flex align-items-center justify-content-between">
-          <p>Author:</p>
+          <p>Author: {{ user }}</p>
+          <p>Date: {{ formatDate }}</p>
         </div>
       </template>
     </modal>
     <div class="article-container">
-      <!-- TODO: add img - :style="{ backgroundImage: `url(${img})` }"  -->
-      <div class="article-card" v-on:click="$refs.modalName.openModal()">
+      <div
+        class="article-card"
+        :style="{ backgroundImage: `url(${img})` }"
+        v-on:click="$refs.modalName.openModal()"
+      >
         <div class="article-title">{{ title }} {{ text }}</div>
       </div>
     </div>
@@ -27,6 +31,7 @@
 </template>
 
 <script>
+import moment from "moment";
 import Modal from "./Modal.vue";
 
 export default {
@@ -35,9 +40,16 @@ export default {
     title: String,
     img: String,
     text: String,
+    user: Number,
+    date: String,
   },
   components: {
     Modal,
+  },
+  computed: {
+    formatDate() {
+      return moment(this.date).format("MMMM Do YYYY - HH:mm");
+    },
   },
 };
 </script>
@@ -50,6 +62,7 @@ export default {
   width: 19rem;
   height: 19rem;
   color: #fff;
+  font-weight: bold;
   display: flex;
   align-items: flex-end;
   justify-content: center;
@@ -61,8 +74,10 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   border-radius: 2px;
   box-shadow: 0 2px 8px lightblue;
+  transition: all 0.5s ease;
 }
 .article-card:hover {
+  transform: scale(1.1);
   cursor: pointer;
   opacity: 0.6;
 }
