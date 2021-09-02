@@ -58,6 +58,7 @@ export const auth = {
         },
         async loadUser({ commit }) {
             try {
+                //HTTP request on backend
                 const res = await axios({
                     url: 'http://localhost:3000/api/auth',
                     method: 'GET',
@@ -82,6 +83,7 @@ export const auth = {
             state.isAuthenicated = true
         },
         userLoaded(state, user) {
+            state.isAuthenicated = true // state = {isAuthenicated : true, user: null, loading: false}
             state.user = user
             state.loading = false
         },

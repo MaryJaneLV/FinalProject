@@ -19,6 +19,9 @@ curl --header "Content-Type: application/json" \
   --data '{"id":2,"title":"data-warehouse","text":"Team-oriented empowering software","user_id":1}' \
   http://localhost:3000/api/post
 
+POST REQUEST api/post
+curl --request DELETE http://localhost:3000/api/post/15
+
 PUT REQUEST api/post/:id
 curl --header "Content-Type: application/json" \
   --request PUT \

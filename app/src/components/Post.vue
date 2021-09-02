@@ -14,7 +14,7 @@
         <div>
           <p>Author: {{ user }}</p>
           <p>Created: {{ formatDate }}</p>
-          <button v-if="isLoggedIn">DELETE</button>
+          <button v-if="isLoggedIn" v-on:click="deletePost">DELETE</button>
           <!-- TODO: Add to user posts for post modification
           <button class="btn btn--secondary" @click="$refs.modalName.closeModal()">Cancel</button>
           <button class="btn btn--primary" @click="$refs.modalName.closeModal()">Save</button> -->
@@ -56,6 +56,7 @@ import Modal from "./Modal.vue";
 export default {
   name: "Post",
   props: {
+    id: Number,
     title: String,
     text: String,
     user: Number,
@@ -69,14 +70,22 @@ export default {
     formatDate() {
       return moment(this.date).format("MMMM Do YYYY - HH:mm ");
     },
-  },
-  methods: {
     isLoggedIn() {
-      if (this.$store.state.auth.user === user) {
+      if(!this.$store.state.auth.user) return false
+      if (this.$store.state.auth.user.id === this.user) {
         return true;
       } else {
         return false;
       }
+    },
+  },
+  methods: {
+    deletePost() {
+      let id = this.id
+      this.$store.dispatch({
+        type: "posts/deletePost",
+        id
+      });
     },
   },
 };

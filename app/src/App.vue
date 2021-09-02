@@ -10,7 +10,18 @@ import Header from "./components/Header.vue";
 
 export default {
   name: "App",
-
+  mounted() {
+    if(localStorage.getItem('token')){
+      this.$store.dispatch({
+        type:"auth/loadUser"
+      })
+    }
+    //To load data in to the store we need to dispatch an action.
+    //Check store/posts.js for further instruction
+    this.$store.dispatch({
+      type: "posts/loadPoasts", // module posts, action loadPosts
+    });
+  },
   components: {
     Header,
   },
@@ -22,13 +33,7 @@ export default {
       return this.$store.state.auth.user;
     },
   },
-  mounted() {
-    //To load data in to the store we need to dispatch an action.
-    //Check store/posts.js for further instruction
-    this.$store.dispatch({
-      type: "posts/loadPoasts", // module posts, action loadPosts
-    });
-  },
+
 };
 </script>
 

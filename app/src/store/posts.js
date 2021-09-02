@@ -41,6 +41,21 @@ export const posts = {
             } catch (error) {
                 console.error(error)
             }
+        },
+        async deletePost({commit}, {id}){
+            const url = `http://localhost:3000/api/post/${id}`
+            console.log(url)
+            await axios({
+                url: url,
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json",
+                    "x-auth-token":localStorage.getItem('token')
+                }
+            });
+            commit('deletePost', id)
+            router.push('/')
+
         }
     },
     mutations: {
@@ -48,8 +63,10 @@ export const posts = {
             state.posts = posts // change of state
         },
         createPost(state, post){
-            console.log(post)
-            state.posts = [...state.posts, post]
+            state.posts.unshift(post)
+        },
+        deletePost(state, id){
+            state.posts = state.posts.filter(post => post.id !== id )
         }
     },
     getters:{
