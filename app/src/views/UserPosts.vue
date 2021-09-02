@@ -10,7 +10,7 @@
       v-for="post in userPosts"
       :title="post.title"
       :imageUrl="post.picture_url"
-      :sometext="post.sometext"
+      :text="post.text"
       :key="post.title"
     />
   </div>
@@ -22,13 +22,13 @@ import Post from "../components/Post.vue";
 export default {
   name: "UserPosts",
   components: {
-    Post
+    Post,
   },
   computed: {
-    userPosts () {
-      return this.$store.getters['posts/userPosts']
-  }
-}
+    userPosts() {
+      return this.$store.getters["posts/userPosts"];
+    },
+  },
 };
 </script>
 

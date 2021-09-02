@@ -4,11 +4,13 @@
       <h1>Latest posts</h1>
     </div>
     <div class="page-container">
-      <!-- TODO: add :img="article.img" -->
       <Article
         v-for="post in posts"
         :title="post.title"
         :text="post.text"
+        :user="post.user_id"
+        :date="post.created_at"
+        :img="post.picture_url"
         :key="post.id"
       />
     </div>
@@ -25,10 +27,10 @@ export default {
     Article,
   },
   computed: {
-    posts(){
+    posts() {
       //Using store/posts sortPostsByDate getter
-      return this.$store.getters['posts/sortPostsByDate']
-    }
+      return this.$store.getters["posts/sortPostsByDate"].splice(-3);
+    },
   },
 };
 </script>

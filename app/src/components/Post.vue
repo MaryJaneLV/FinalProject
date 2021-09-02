@@ -8,18 +8,12 @@
         <p>
           {{ text }}
         </p>
-        <p>
-          {{ text }}
-        </p>
-        <p>
-          {{ text }}
-        </p>
       </template>
 
       <template v-slot:footer>
-        <div class="d-flex align-items-center justify-content-between">
+        <div>
           <p>Author: {{ user }}</p>
-          <p>Created: {{ date }}</p>
+          <p>Created: {{ formatDate }}</p>
           <!-- TODO: Add to user posts for post modification
           <button class="btn btn--secondary" @click="$refs.modalName.closeModal()">Cancel</button>
           <button class="btn btn--primary" @click="$refs.modalName.closeModal()">Save</button> -->
@@ -28,9 +22,7 @@
     </modal>
     <div class="post-container">
       <div class="column left">
-        <p>IMAGE</p>
- 
-        <img v-bind:src="imageUrl"/>
+        <img v-bind:src="imageUrl" />
       </div>
 
       <div class="column right">
@@ -57,13 +49,13 @@
 </template>
 
 <script>
+import moment from "moment";
 import Modal from "./Modal.vue";
 
 export default {
   name: "Post",
   props: {
     title: String,
-    // img: String,
     text: String,
     user: Number,
     date: String,
@@ -71,6 +63,11 @@ export default {
   },
   components: {
     Modal,
+  },
+  computed: {
+    formatDate() {
+      return moment(this.date).format("MMMM Do YYYY - HH:mm ");
+    },
   },
 };
 </script>
@@ -109,6 +106,7 @@ hr {
 .right {
   width: 60%;
 }
+
 .post-header {
   font-size: 1.5em;
   margin-top: 1rem;
@@ -117,8 +115,10 @@ hr {
   font-weight: bold;
 }
 .post-container {
+  display: table;
+  min-width: 70rem;
   max-width: 70rem;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease-in-out;
   font-family: Avenir, Helvetica, Arial, sans-serif;
 }
 .post-container:hover {
@@ -131,7 +131,7 @@ hr {
 .post-body {
   padding: 10px 50px 0 50px;
   overflow: hidden;
-  text-align: left;
+  text-align: center;
   display: -webkit-box;
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
