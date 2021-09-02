@@ -47,15 +47,12 @@ export default {
     options() {
       let options =[
         {
-          title: "My posts",
-          url: "/userposts"
-        },
-        {
           title: this.isAuthed ? "Log out" : "Log in",
           url: "/login"
         }
       ]
       !this.isAuthed && options.push({title: "Sign Up", url: "/signup"})
+      this.isAuthed && options.unshift({title: "My posts", url: "/userposts"})
       return options
     },
     isAuthed(){   
