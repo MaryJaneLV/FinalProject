@@ -13,7 +13,7 @@ export default {
   name: "Dropdown",
   props: {
     options: Array
-  }
+  },
 };
 </script>
 

@@ -28,8 +28,9 @@
     </modal>
     <div class="post-container">
       <div class="column left">
-        <p>Image goes here</p>
-        <!-- Image goes here : <img :src="img" /> -->
+        <p>IMAGE</p>
+ 
+        <img v-bind:src="imageUrl"/>
       </div>
 
       <div class="column right">
@@ -66,6 +67,7 @@ export default {
     text: String,
     user: Number,
     date: String,
+    imageUrl: String,
   },
   components: {
     Modal,

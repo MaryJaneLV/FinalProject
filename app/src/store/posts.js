@@ -17,7 +17,9 @@ export const posts = {
                 });
 
                 const posts = res.data
-                commit('loadPosts', posts)
+                //To actualy change state we need to commit a mutation
+                //posts are passed to loadPosts mutation
+                commit('loadPosts', posts) // Call loadPoasts mutation and pass posts
             } catch (error) {
                 console.error('Failed to fetch posts')
             }
@@ -34,7 +36,7 @@ export const posts = {
                     }
                 });
                 let post = res.data
-                commit('loadPosts', post)
+                commit('createPost', post)
                 router.push('/userposts')
             } catch (error) {
                 console.error(error)
@@ -43,10 +45,19 @@ export const posts = {
     },
     mutations: {
         loadPosts(state, posts) {
-            state.posts = posts
+            state.posts = posts // change of state
         },
         createPost(state, post){
-            state.posts.push(post)
+            console.log(post)
+            state.posts = [...state.posts, post]
         }
+    },
+    getters:{
+        //Check views/UserPosts for usage
+        userPosts: (state, getters, rootState )=> state.posts.filter( post =>
+            post.user_id == rootState.auth.user.id
+        ),
+        //Check views/Home computed for usage
+        sortPostsByDate: (state) => state.posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     }
 };
