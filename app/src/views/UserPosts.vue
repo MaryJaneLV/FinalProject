@@ -8,6 +8,7 @@
     </div>
     <Post
       v-for="post in userPosts"
+      :id="post.id"
       :title="post.title"
       :user="post.user_id"
       :imageUrl="post.picture_url"

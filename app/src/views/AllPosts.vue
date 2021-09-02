@@ -38,23 +38,10 @@
 </template>
 
 <script>
-import axios from "axios";
 import Post from "../components/Post.vue";
 
 export default {
   name: "AllPosts",
-  // data() {
-  //   return {
-  //     posts: null,
-  //   };
-  // },
-  // data() {
-  //   return {
-  //     list: undefined,
-  //     entry: undefined,
-  //     meta: undefined,
-  //   };
-  // },
   computed: {
     //Gettings state from vuex store
     posts() {
