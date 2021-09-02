@@ -24,7 +24,7 @@
         :style="{ backgroundImage: `url(${img})` }"
         v-on:click="$refs.modalName.openModal()"
       >
-        <div class="article-title">{{ title }} {{ text }}</div>
+        <div class="article-title">{{ title }}</div>
       </div>
     </div>
   </div>

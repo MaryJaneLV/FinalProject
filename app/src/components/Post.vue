@@ -14,6 +14,7 @@
         <div>
           <p>Author: {{ user }}</p>
           <p>Created: {{ formatDate }}</p>
+          <button v-if="isLoggedIn">DELETE</button>
           <!-- TODO: Add to user posts for post modification
           <button class="btn btn--secondary" @click="$refs.modalName.closeModal()">Cancel</button>
           <button class="btn btn--primary" @click="$refs.modalName.closeModal()">Save</button> -->
@@ -67,6 +68,15 @@ export default {
   computed: {
     formatDate() {
       return moment(this.date).format("MMMM Do YYYY - HH:mm ");
+    },
+  },
+  methods: {
+    isLoggedIn() {
+      if (this.$store.state.auth.user === user) {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
 };
@@ -136,6 +146,8 @@ hr {
   -webkit-line-clamp: 7;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  min-height: 9.5rem;
+  max-height: 9rem;
 }
 .post-footer {
   text-align: center;
