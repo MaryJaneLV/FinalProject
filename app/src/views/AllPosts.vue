@@ -48,13 +48,13 @@ export default {
   //     posts: null,
   //   };
   // },
-  data() {
-    return {
-      list: undefined,
-      entry: undefined,
-      meta: undefined,
-    };
-  },
+  // data() {
+  //   return {
+  //     list: undefined,
+  //     entry: undefined,
+  //     meta: undefined,
+  //   };
+  // },
   computed: {
     //Gettings state from vuex store
     posts() {
