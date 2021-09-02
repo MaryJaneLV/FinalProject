@@ -54,9 +54,14 @@ export const posts = {
     },
     getters:{
         //Check views/UserPosts for usage
-        userPosts: (state, getters, rootState )=> state.posts.filter( post =>
-            post.user_id == rootState.auth.user.id
-        ),
+        userPosts: (state, getters, rootState )=> {
+            if(!rootState.auth.user){
+                return []
+            }
+            return state.posts.filter( (post) => {
+                return post.user_id == rootState.auth.user.id
+            }
+        )},
         //Check views/Home computed for usage
         sortPostsByDate: (state) => state.posts.sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
     }
