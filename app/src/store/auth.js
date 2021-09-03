@@ -72,7 +72,7 @@ export const auth = {
         commit("userLoaded", user);
         router.push("/");
       } catch (error) {
-        commit("authFailure");
+        // commit("authFailure");
       }
     },
   },
@@ -98,6 +98,7 @@ export const auth = {
       state.loading = false;
       state.user = null;
       state.showError = true;
+      setTimeout(function(){state.showError = false}, 2000);
     },
   },
 };
