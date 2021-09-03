@@ -39,33 +39,34 @@ export default {
   props: {},
   data() {
     return {
-    
-      hover: false
+      hover: false,
     };
   },
   computed: {
     options() {
-      let options =[
+      let options = [
         {
           title: this.isAuthed ? "Log out" : "Log in",
-          url: "/login"
-        }
-      ]
-      !this.isAuthed && options.push({title: "Sign Up", url: "/signup"})
-      this.isAuthed && options.unshift({title: "My posts", url: "/userposts"})
-      return options
+          url: "/login",
+        },
+      ];
+      !this.isAuthed && options.push({ title: "Sign Up", url: "/signup" });
+      this.isAuthed &&
+        options.unshift({ title: "My posts", url: "/userposts" });
+      return options;
     },
-    isAuthed(){   
-      return this.$store.state.auth.isAuthenicated}
+    isAuthed() {
+      return this.$store.state.auth.isAuthenicated;
+    },
   },
   components: {
-    Dropdown
+    Dropdown,
   },
   methods: {
     clicker() {
       return (this.hover = !this.dropdownState);
-    }
-  }
+    },
+  },
 };
 </script>
 

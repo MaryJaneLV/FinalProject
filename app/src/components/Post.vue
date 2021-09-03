@@ -14,10 +14,9 @@
         <div>
           <p>Author: {{ user }}</p>
           <p>Created: {{ formatDate }}</p>
+        </div>
+        <div class="del">
           <button v-if="isLoggedIn" v-on:click="deletePost">DELETE</button>
-          <!-- TODO: Add to user posts for post modification
-          <button class="btn btn--secondary" @click="$refs.modalName.closeModal()">Cancel</button>
-          <button class="btn btn--primary" @click="$refs.modalName.closeModal()">Save</button> -->
         </div>
       </template>
     </modal>
@@ -71,7 +70,7 @@ export default {
       return moment(this.date).format("MMMM Do YYYY - HH:mm ");
     },
     isLoggedIn() {
-      if(!this.$store.state.auth.user) return false
+      if (!this.$store.state.auth.user) return false;
       if (this.$store.state.auth.user.id === this.user) {
         return true;
       } else {
@@ -81,10 +80,10 @@ export default {
   },
   methods: {
     deletePost() {
-      let id = this.id
+      let id = this.id;
       this.$store.dispatch({
         type: "posts/deletePost",
-        id
+        id,
       });
     },
   },
@@ -110,6 +109,7 @@ button {
   color: #fff;
   width: 7rem;
   height: 3rem;
+  position: relative;
 }
 img {
   width: 100%;
@@ -118,6 +118,10 @@ img {
 }
 hr {
   width: 85%;
+}
+.del {
+  position: relative;
+  top: 5px;
 }
 .left {
   width: 40%;
