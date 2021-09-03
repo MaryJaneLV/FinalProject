@@ -3,7 +3,6 @@
     <div class="error" v-if="showError">
       Incorrect username or password
     </div>
-    <div v-else="isAuth"></div>
     <form v-if="!isAuth" @submit="login">
       <h2>Log in</h2>
       <input v-model="username" placeholder="username" name="uname" />
@@ -38,10 +37,6 @@ export default {
       return this.$store.state.auth.isAuthenicated;
     },
     showError() {
-      if (
-        this.$store.state.auth.showError !=
-        this.$store.state.auth.isAuthenicated
-      )
         return this.$store.state.auth.showError;
     },
   },
