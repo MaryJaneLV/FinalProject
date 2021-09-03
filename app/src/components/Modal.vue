@@ -115,10 +115,12 @@ button {
   align-items: stretch;
 }
 .modal__footer {
-  padding: 10px 20px 20px;
+  padding: 10px 20px;
   text-align: left;
   font-size: smaller;
   font-weight: bold;
+  display: flex;
+  justify-content: space-between;
 }
 .fade-enter-active,
 .fade-leave-active {
